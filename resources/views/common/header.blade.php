@@ -6,16 +6,13 @@
                 @if(setting('app-logo', '') !== 'none')
                     <img class="logo-image" src="{{ setting('app-logo', '') === '' ? url('/logo.png') : url(setting('app-logo', '')) }}" alt="Logo">
                 @endif
-                @if (setting('app-name-header'))
-                    <span class="logo-text">{{ setting('app-name') }}</span>
-                @endif
             </a>
             <div class="mobile-menu-toggle hide-over-l">@icon('more')</div>
         </div>
 
         <div class="header-search hide-under-l">
             @if (hasAppAccess())
-            <form action="{{ url('/search') }}" method="GET" class="search-box" role="search">
+            <form action="{{ url('/search') }}" style="left: 50%" method="GET" class="search-box" role="search">
                 <button id="header-search-box-button" type="submit" aria-label="{{ trans('common.search') }}" tabindex="-1">@icon('search') </button>
                 <input id="header-search-box-input" type="text" name="term"
                        aria-label="{{ trans('common.search') }}" placeholder="{{ trans('common.search') }}"
