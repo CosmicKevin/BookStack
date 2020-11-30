@@ -7,7 +7,10 @@
             $shelf,
         ]])
     </div>
-
+{{--    @if($categories)
+        Toon de categorieen
+        @php(dump($categories))
+    @endif--}}
     <main class="card content-wrap">
         <h1 class="break-text">{{$shelf->name}}</h1>
         <div class="book-content">

@@ -102,6 +102,7 @@ class BookshelfController extends Controller
      */
     public function show(string $slug)
     {
+//        dd($slug);
         $shelf = $this->bookshelfRepo->getBySlug($slug);
         $this->checkOwnablePermission('book-view', $shelf);
 
@@ -110,10 +111,21 @@ class BookshelfController extends Controller
         $view = setting()->getForCurrentUser('bookshelf_view_type', config('app.views.books'));
 
         $this->setPageTitle($shelf->getShortName());
+
+        $categories = false;
+
+        if($shelf->has_categories) {
+            $categories = [
+                'Word',
+                'Excel'
+            ];
+        }
+
         return view('shelves.show', [
             'shelf' => $shelf,
             'view' => $view,
-            'activity' => Activity::entityActivity($shelf, 20, 1)
+            'activity' => Activity::entityActivity($shelf, 20, 1),
+            'categories' => $categories
         ]);
     }
 
