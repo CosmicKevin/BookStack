@@ -1,21 +1,46 @@
+<html class="achtergrond">
 @extends('tri-layout')
 
-@section('container-attrs')
+{{--@section('container-attrs')
     component="entity-search"
     option:entity-search:entity-id="{{ $book->id }}"
     option:entity-search:entity-type="book"
-@stop
+@stop--}}
 
 @section('body')
+{{--
 
     <div class="mb-s">
         @include('partials.breadcrumbs', ['crumbs' => [
             $book,
         ]])
     </div>
+--}}
+<body>
+<h1 style="text-align: center;">{{$book->name}}</h1>
+<div class="grid-container2">
+    <div class="grid-item2">
+        <h2>Lessen</h2>
+        <p class="pointer2" onclick="location.href='/books/word-2f2/page/pagina'">Les 1</p>
+    </div>
+    <div class="grid-item2">
+        <h2>Bronnen</h2>
+        <p>Word download</p>
+    </div>
+    <div class="grid-item2"></div>
+    <div class="grid-item2"></div>
+    <div class="grid-item2"></div>
+    <div class="grid-item2"></div>
+    <div class="grid-item2"></div>
+    <div class="grid-item2"></div>
+</div>
 
-    <main class="content-wrap card">
-        <h1 class="break-text">{{$book->name}}</h1>
+</body>
+    <main>
+
+
+
+       {{-- <h1 class="break-text">{{$book->name}}</h1>
         <div refs="entity-search@contentView" class="book-content">
             <p class="text-muted">{!! nl2br(e($book->description)) !!}</p>
             @if(count($bookChildren) > 0)
@@ -52,9 +77,10 @@
             @endif
         </div>
 
-        @include('partials.entity-search-results')
+        @include('partials.entity-search-results')--}}
     </main>
 
+{{--
 @stop
 
 @section('right')
@@ -147,5 +173,6 @@
             @include('partials.activity-list', ['activity' => $activity])
         </div>
     @endif
+--}}
 @stop
 
